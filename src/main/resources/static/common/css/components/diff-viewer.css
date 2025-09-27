@@ -1,0 +1,539 @@
+/* Modern Diff Viewer Component */
+
+.diff-viewer {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.diff-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.diff-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.diff-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.diff-commit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.diff-commit-hash {
+  font-family: var(--font-family-mono);
+  background: var(--bg-tertiary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
+.diff-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.diff-author-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.diff-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.diff-content {
+  position: relative;
+  overflow-x: auto;
+  background: var(--bg-primary);
+}
+
+.diff-file {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.diff-file:last-child {
+  border-bottom: none;
+}
+
+.diff-file-header {
+  background: var(--bg-secondary);
+  padding: var(--space-3) var(--space-6);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.diff-file-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.diff-file-icon {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.diff-file-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.diff-file-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.diff-file-stat.added {
+  color: var(--success-color);
+}
+
+.diff-file-stat.removed {
+  color: var(--danger-color);
+}
+
+.diff-file-stat.modified {
+  color: var(--warning-color);
+}
+
+.diff-lines {
+  display: flex;
+  min-height: 100%;
+}
+
+.diff-line-numbers {
+  background: var(--bg-tertiary);
+  border-right: 1px solid var(--border-color);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  user-select: none;
+  min-width: 60px;
+  text-align: right;
+  line-height: var(--leading-relaxed);
+}
+
+.diff-line-numbers.old {
+  background: rgb(239 68 68 / 0.05);
+  color: var(--danger-color);
+}
+
+.diff-line-numbers.new {
+  background: rgb(16 185 129 / 0.05);
+  color: var(--success-color);
+}
+
+.diff-line-content {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-line {
+  display: flex;
+  min-height: 1.5em;
+}
+
+.diff-line.old {
+  background: rgb(239 68 68 / 0.05);
+  border-left: 3px solid var(--danger-color);
+}
+
+.diff-line.new {
+  background: rgb(16 185 129 / 0.05);
+  border-left: 3px solid var(--success-color);
+}
+
+.diff-line.context {
+  background: var(--bg-primary);
+  border-left: 3px solid var(--border-color);
+}
+
+.diff-line.hunk {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--info-color);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.diff-line-number {
+  background: var(--bg-tertiary);
+  border-right: 1px solid var(--border-color);
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  user-select: none;
+  min-width: 60px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.diff-line-number.old {
+  background: rgb(239 68 68 / 0.1);
+  color: var(--danger-color);
+}
+
+.diff-line-number.new {
+  background: rgb(16 185 129 / 0.1);
+  color: var(--success-color);
+}
+
+.diff-line-content {
+  flex: 1;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-line-prefix {
+  margin-right: var(--space-2);
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.diff-line-prefix.old {
+  color: var(--danger-color);
+}
+
+.diff-line-prefix.new {
+  color: var(--success-color);
+}
+
+.diff-line-prefix.context {
+  color: var(--text-muted);
+}
+
+/* Diff syntax highlighting */
+.diff-keyword {
+  color: var(--info-color);
+  font-weight: 600;
+}
+
+.diff-string {
+  color: var(--success-color);
+}
+
+.diff-comment {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.diff-number {
+  color: var(--warning-color);
+}
+
+.diff-operator {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Diff controls */
+.diff-controls {
+  position: sticky;
+  top: 0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  z-index: 10;
+}
+
+.diff-controls-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.diff-controls-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.diff-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.diff-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.diff-toggle input[type="checkbox"]:checked {
+  accent-color: var(--primary-color);
+}
+
+.diff-zoom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.diff-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.diff-zoom-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diff-zoom-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.diff-zoom-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Diff search */
+.diff-search {
+  position: relative;
+  max-width: 300px;
+}
+
+.diff-search-input {
+  padding-left: var(--space-10);
+  font-family: var(--font-family-mono);
+  font-size: var(--text-sm);
+}
+
+.diff-search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.diff-search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.diff-search-result {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.diff-search-result:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.diff-search-result:last-child {
+  border-bottom: none;
+}
+
+/* Diff loading */
+.diff-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  color: var(--text-muted);
+}
+
+.diff-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: var(--space-4);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Diff error */
+.diff-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  color: var(--danger-color);
+  text-align: center;
+}
+
+.diff-error-icon {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+}
+
+.diff-error-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.diff-error-message {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .diff-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .diff-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .diff-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .diff-controls-left,
+  .diff-controls-right {
+    justify-content: center;
+  }
+  
+  .diff-search {
+    max-width: none;
+  }
+  
+  .diff-line-numbers {
+    min-width: 50px;
+  }
+  
+  .diff-line-number {
+    min-width: 50px;
+  }
+}
+
+/* Dark mode adjustments */
+.dark .diff-viewer {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+.dark .diff-header {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark .diff-file-header {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark .diff-line-numbers {
+  background: var(--bg-tertiary);
+  border-right-color: var(--border-color);
+}
+
+.dark .diff-line-number {
+  background: var(--bg-tertiary);
+  border-right-color: var(--border-color);
+}
+
+.dark .diff-controls {
+  background: var(--bg-primary);
+  border-bottom-color: var(--border-color);
+}
