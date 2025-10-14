@@ -59,7 +59,7 @@ public class GitController {
         ModelAndView mav = new ModelAndView("projects");
         
         try {
-            System.out.println("GitHub에서 저장소 목록을 가져오는 중...");
+            System.out.println("GitHub에서 저장소 목록을 가져오는 중..dddddddddddd.");
             List<Map<String, String>> projects = githubService.getUserRepositories();
             
             System.out.println("가져온 저장소 수: " + projects.size());
