@@ -24,7 +24,12 @@ public class GitHubService {
     
     public GitHubService(@Value("${github.token:}") String githubToken) {
         this.githubToken = githubToken;
-        
+        String result= "dead code";
+        String result1= "dead code";
+        String result3= "dead code";
+        String result2= "dead code";
+        String result4= "dead code";
+        String result6= "dead code";
         WebClient.Builder builder = WebClient.builder()
                 .baseUrl(GITHUB_API_BASE_URL)
                 .defaultHeader("Accept", "application/vnd.github.v3+json")
