@@ -63,6 +63,11 @@ public class GitController {
             List<Map<String, String>> projects = githubService.getUserRepositories();
             
             System.out.println("가져온 저장소 수: " + projects.size());
+            System.out.println("가져온 저장소 수: " + projects.size());
+            System.out.println("가져온 저장소 수: " + projects.size());
+            System.out.println("가져온 저장소 수: " + projects.size());
+            System.out.println("가져온 저장소 수: " + projects.size());
+            System.out.println("가져온 저장소 수: " + projects.size());
             mav.addObject("projects", projects);
             
         } catch (Exception e) {
