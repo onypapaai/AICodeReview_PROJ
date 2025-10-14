@@ -16,7 +16,6 @@ public class GitHubService {
     
     private final WebClient webClient;
     private final String GITHUB_API_BASE_URL = "https://api.github.com";
-//    private final String GITHUB_USERNAME = "juldae719";
     private final String GITHUB_USERNAME = "onypapaai";
     
     @Value("${github.token:}")
