@@ -59,14 +59,14 @@ public class GitController {
         ModelAndView mav = new ModelAndView("projects");
         
         try {
-            System.out.println("GitHub에서 저장소 목록을 가져오는 중..dddddddsafsadfdddddd.");
+            System.out.println("GitHub에서 저장소 목록을 가져오는 중..dddddddsafassadfdsafdfsadfdddddd.");
             List<Map<String, String>> projects = githubService.getUserRepositories();
             
             System.out.println("가져온 저장소 수: " + projects.size());
             mav.addObject("projects", projects);
             
         } catch (Exception e) {
-            System.err.println("프로젝트 목록을 가져오는 중 오류 발생: " + e.getMessage());
+            System.err.println("프로젝트 목록을 가져오는 중 오sdafasdf 발생: " + e.getMessage());
             e.printStackTrace();
             
             // 오류 발생 시 기본 프로젝트 목록 제공
