@@ -19,7 +19,7 @@ public class GitHubService {
     private final String GITHUB_USERNAME = "onypapaai";
     
     @Value("${github.token:}")
-    private String githubToken="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";
+    private String githubToken;
     
     public GitHubService(@Value("${github.token:}") String githubToken) {
     	githubToken ="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";
