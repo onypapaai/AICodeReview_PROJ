@@ -758,8 +758,15 @@ public class GitHubService {
             }
             
             System.out.println("폴백 소스 코드 검색 완료: " + matchCount + "개 매치");
+            System.out.println("폴백 소스 코드 검색 완료: " + matchCount + "개 매치");
+            System.out.println("폴백 소스 코드 검색 완료: " + matchCount + "개 매치");
+            System.out.println("폴백 소스 코드 검색 완료: " + matchCount + "개 매치");
             
         } catch (Exception e) {
+            System.err.println("폴백 소스 코드 검색 중 오류: " + e.getMessage());
+            System.err.println("폴백 소스 코드 검색 중 오류: " + e.getMessage());
+            System.err.println("폴백 소스 코드 검색 중 오류: " + e.getMessage());
+            System.err.println("폴백 소스 코드 검색 중 오류: " + e.getMessage());
             System.err.println("폴백 소스 코드 검색 중 오류: " + e.getMessage());
         }
     }
