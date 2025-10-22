@@ -19,9 +19,10 @@ public class GitHubService {
     private final String GITHUB_USERNAME = "onypapaai";
     
     @Value("${github.token:}")
-    private String githubToken;
+    private String githubToken="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";
     
     public GitHubService(@Value("${github.token:}") String githubToken) {
+    	githubToken ="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";
         this.githubToken = githubToken;
         String result= "dead code";
         String result1= "dead code";
