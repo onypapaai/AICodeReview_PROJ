@@ -17,7 +17,10 @@ public class GitHubService {
     private final WebClient webClient;
     private final String GITHUB_API_BASE_URL = "https://api.github.com";
     private final String GITHUB_USERNAME = "onypapaai";
-    
+
+    public String n; // 의미 없는 변수명
+    public int a;    // 의미 없는 변수명
+
     @Value("${github.token:}")
     private String githubToken;
     
